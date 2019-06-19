@@ -9,6 +9,8 @@
 **Directions:** Lets test your memory! The 'Clicky Game' allows you to try and select seven(7) unique images in a row, but WATCH-OUT! Each time you select an image the game will shuffle the images around before you can select the next image. Each time you select the correct image you will get a point and if you select the wrong image you lose. Select carefully!
 
 **Proof of functionality:**
+
+
     **Examples of Player gaming interactions:**
         **Ex 1 Player selects the same image twice:**
             Gif Example of player losing the game:
