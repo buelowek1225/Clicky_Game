@@ -13,6 +13,8 @@
         **Ex 1 Player selects the same image twice:**
             Gif Example of player losing the game:
             ![Gif Example 1 of BAMAZON user search.](videos/gif1.gif)
+            
+            
     **Example 2  Player selects 7 unique images and wins the game:**
             Gif Example of player winning:
             ![Gif Example 2 of BAMAZON user search.](videos/gif2.gif)
