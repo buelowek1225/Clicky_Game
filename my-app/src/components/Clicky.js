@@ -1,25 +1,29 @@
+// imported files and boiler plate
 import React from 'react';
 import './Clicky.css';
 import imageArrayJson from "./images.json";
 
+// setting the state of the json image array and clickcount (score)
 class Clicky extends React.Component {
   state = {
     imageArray: imageArrayJson,
     clickCount: 0
   };
 
+  // imageclick arrow function. 
   imageClick = (index) => {
     this.setState({ clickCount: this.state.clickCount + 1 });
     if (this.state.imageArray[index].clicked === true){
       this.setState({ clickCount: 0 });
-      this.setState({ imageArray: imageArrayJson});
+      this.state.imageArray.forEach((image) => {
+        image.clicked = false;
+      })
+      // add a modal letting the user know they already clicked that image(they lost or they won)
     } else {
       this.state.imageArray[index].clicked = true;
-      this.setState({ imageArray: this.state.imageArray })
       this.shuffle(this.state.imageArray);
       this.setState({ imageArray: this.state.imageArray });
     } 
-    
   }
 
   // source: https://javascript.info/task/shuffle
@@ -29,13 +33,14 @@ class Clicky extends React.Component {
     imageArray.sort(() => Math.random() - 0.5);
   }
 
+  // Componants to display on the page: navbar, header, grid of images, footer
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand-lg">
           <div className="navbar-brand">Clicky Game</div>
           <div className="navbar-brand">You guessed correctly!</div>
-          <div className="navbar-brand">Score: {this.state.clickCount} | TopScore: 7</div>
+          <div className="navbar-brand">Score: {this.state.clickCount} | Max Possible Score: 12</div>
         </nav>
         <header>
           <div className="jumbotron jumbotron-fluid">
@@ -45,7 +50,7 @@ class Clicky extends React.Component {
             </div>
           </div>
         </header>
-        <div className="container">
+        <div className="container mx-auto">
           <div className="row justify-content-center">
             <div className="col-sm-3 paragraph-format">
               <figure className="figure">
